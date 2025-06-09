@@ -14,6 +14,10 @@
       
     }
 
+    .form-group {
+      padding: 10px;
+    }
+
     form button {
       margin-top: 10px;
     }
@@ -28,16 +32,20 @@
 
     <form action="/enviar-email" method="post" class="centered">
       <div class="form-group">
+        <label for="input-name">Seu nome</label>
+        <input type="text" name="nome" class="form-control" id="input-name" placeholder="Digite seu nome." required>
+      </div>
+      <div class="form-group">
         <label for="input-email">Destinatário</label>
-        <input type="email" name="destinatario" class="form-control" id="input-email" aria-describery="email-help" placeholder="destinatário@exemplo.com">
+        <input type="email" name="destinatario" class="form-control" id="input-email" aria-describery="email-help" placeholder="destinatário@exemplo.com" required>
       </div>
       <div class="form-group">
         <label for="input-subject">Assunto</label>
-        <input type="text" name="subject" id="input-subject" class="form-control" placeholder="Digite o assunto do email">
+        <input type="text" name="subject" id="input-subject" class="form-control" placeholder="Digite o assunto do email" required>
       </div>
       <div class="form-group">
         <label for="input-msg">Mensagem</label>
-        <textarea type="text" name="mensagem" id="input-msg" class="form-control input-lg"  placeholder="Sua mensagem"></textarea>
+        <textarea type="text" name="mensagem" id="input-msg" class="form-control input-lg"  placeholder="Sua mensagem"></textarea required>
       </div>
       <button type="submit" class="btn btn-primary">Enviar</button>
     </form>

@@ -21,7 +21,7 @@
       Email enviado! Verifique sua caixa de entrada.
     </div>
     <div class="centered">
-      <p class="lead">Parabéns! Você conseguiu enviar um email a partir de um formulário que você mesmo criou!</p>
+      <p class="lead">Parabéns{% if person %}, {{ person }} {% endif %}! Você conseguiu enviar um email a partir de um formulário que você mesmo criou!</p>
       <a href="/" class="btn btn-link">Voltar</a>    
     </div>
 </body>
