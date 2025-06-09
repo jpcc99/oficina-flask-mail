@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template, request
 from flask_mail import Mail, Message
 
 app = Flask(__name__)
@@ -13,9 +13,10 @@ mail = Mail(app)
 
 @app.route("/")
 def home():
-    return "Hello World"
+    return render_template("index.html")
 
 
+"""
 @app.route("/enviar-email")
 def enviar_email():
     msg = Message(
@@ -26,6 +27,16 @@ def enviar_email():
     )
     mail.send(msg)
     return "Email enviado! Verifique sua caixa de entrada"
+"""
+
+
+@app.route("/enviar-email", methods=["GET", "POST"])
+def enviar_email():
+    if request.method == "GET":
+        return render_template("send_email.html")
+
+    if request.method == "POST":
+        return "Its posting..."
 
 
 if __name__ == "__main__":
