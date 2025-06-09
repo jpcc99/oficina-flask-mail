@@ -16,27 +16,16 @@ def home():
     return render_template("index.html")
 
 
-"""
-@app.route("/enviar-email")
+@app.post("/enviar-email")
 def enviar_email():
     msg = Message(
-        subject="Teste de Flask-Mail",
+        subject=request.form["subject"],
         sender="oficinaflaskmail@gmail.com",
-        recipients=["bxs@discente.ifpe.edu.br", "jpcc@discente.ifpe.edu.br"],
-        body="Testando...",
+        recipients=[request.form["destinatario"]],
+        body=request.form["mensagem"],
     )
     mail.send(msg)
-    return "Email enviado! Verifique sua caixa de entrada"
-"""
-
-
-@app.route("/enviar-email", methods=["GET", "POST"])
-def enviar_email():
-    if request.method == "GET":
-        return render_template("send_email.html")
-
-    if request.method == "POST":
-        return "Its posting..."
+    return render_template("sucesso.html")
 
 
 if __name__ == "__main__":
